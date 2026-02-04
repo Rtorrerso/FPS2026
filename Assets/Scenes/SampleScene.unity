@@ -144,6 +144,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   SonInicio: {fileID: 8300000, guid: d0970c5f59abe8344bb56c7fc8f2f107, type: 3}
   SonDisparo: {fileID: 8300000, guid: 7e1172b166b6e064185d584cb2f171c9, type: 3}
+  SonSinBalas: {fileID: 8300000, guid: 678e850f1ee5e5946b54d35863c38e55, type: 3}
+  SonCargaIn: {fileID: 8300000, guid: e589257cb9eedf74a8e505318a6e7f98, type: 3}
+  SonCargaOut: {fileID: 8300000, guid: 30f315ff55b6a1a45a8b6de2bdf24a37, type: 3}
+  totalBalas: 100
+  balasEnCartucho: 12
 --- !u!82 &323125161
 AudioSource:
   m_ObjectHideFlags: 0
