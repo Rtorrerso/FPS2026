@@ -8,6 +8,8 @@ public class logicaArma : MonoBehaviour
     [Header("Generales")]
     public AudioSource audiosource;
     public Animator animator;
+    public ParticleSystem disparoFlare;
+    public ParticleSystem bloodSprayEffect;
 
     [Header("Sonidos")]
     public AudioClip SonInicio;
@@ -32,6 +34,7 @@ public class logicaArma : MonoBehaviour
     {
         audiosource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+	disparoFlare.Stop();
 
         
     }
@@ -46,7 +49,7 @@ public class logicaArma : MonoBehaviour
             if (balasEnCartucho > 0)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(puntoDisparo.position, puntoDisparo.TransformDirection(Vector3.forward), out hit, 50))
+                if (Physics.Raycast(puntoDisparo.position, puntoDisparo.TransformDirection(Vector3.forward), out hit, 10))
                 {
                     if(hit.collider.tag=="Enemigo")
                     {
@@ -58,6 +61,13 @@ public class logicaArma : MonoBehaviour
                 }
                 animator.CrossFadeInFixedTime("Fire", 0.1F);
                 audiosource.PlayOneShot(SonDisparo);
+		disparoFlare.Play();
+		ParticleSystem ps = Instantiate(
+            		bloodSprayEffect,
+            		hit.point,
+            		Quaternion.LookRotation(hit.normal)
+        		);
+		Destroy(ps.gameObject, 0.3F);
                 balasEnCartucho -= 1;
             }
             else  
