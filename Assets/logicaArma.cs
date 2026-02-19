@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class logicaArma : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class logicaArma : MonoBehaviour
     [Header("Enemigo")]
     public GameObject GOEnemigo;
     //public Vida vida;
+    public TMP_Text TotVida;
 
     void Start()
     {
@@ -56,6 +58,7 @@ public class logicaArma : MonoBehaviour
                         GOEnemigo = hit.collider.gameObject;
 			            Vida vida = GOEnemigo.GetComponent<Vida>();   
 			            vida.RecibirDano(dano); 
+                        TotVida.text = vida.valor.ToString();   
                         Debug.Log("Le di..."+GOEnemigo.name);
                     }
                 }
