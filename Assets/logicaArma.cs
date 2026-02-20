@@ -57,7 +57,8 @@ public class logicaArma : MonoBehaviour
                     {
                         GOEnemigo = hit.collider.gameObject;
 			            Vida vida = GOEnemigo.GetComponent<Vida>();   
-			            vida.RecibirDano(dano); 
+			            vida.RecibirDano(dano);
+                        TotVida = GOEnemigo.GetComponentInChildren<TMP_Text>(); 
                         TotVida.text = vida.valor.ToString();   
                         Debug.Log("Le di..."+GOEnemigo.name);
                     }
